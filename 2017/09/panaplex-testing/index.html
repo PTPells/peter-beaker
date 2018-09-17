@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; img-src 'self' https://*; object-src 'none'; script-src 'self' 'unsafe-inline'; worker-src 'none'; frame-src https://www.youtube-nocookie.com https://archive.org; form-action 'none';">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="In the Spring of 2017 I attended the Dayton Hamvention. While browsing through piles of random electronics at the flea market, I stumbled upon a few interesting vintage displays. Among these were pair">
+<meta name="keywords" content="panaplex,boost converter">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Panaplex Display Testing">
+<meta property="og:url" content="https://electro.pizza/2017/09/panaplex-testing/index.html">
+<meta property="og:site_name" content="electro·pizza">
+<meta property="og:description" content="In the Spring of 2017 I attended the Dayton Hamvention. While browsing through piles of random electronics at the flea market, I stumbled upon a few interesting vintage displays. Among these were pair">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://electro.pizza/2017/09/panaplex-testing/pan-lit.png">
+<meta property="og:image" content="https://electro.pizza/2017/09/panaplex-testing/pan-split.png">
+<meta property="og:image" content="https://electro.pizza/2017/09/panaplex-testing/sp-353_detail.png">
+<meta property="og:image" content="https://electro.pizza/2017/09/panaplex-testing/pan-desmith.png">
+<meta property="og:image" content="https://electro.pizza/2017/09/panaplex-testing/pan-boost_volt.gif">
+<meta property="og:image" content="https://electro.pizza/2017/09/panaplex-testing/pan-pin_sweep.gif">
+<meta property="og:updated_time" content="2017-09-28T03:17:41.880Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Panaplex Display Testing">
+<meta name="twitter:description" content="In the Spring of 2017 I attended the Dayton Hamvention. While browsing through piles of random electronics at the flea market, I stumbled upon a few interesting vintage displays. Among these were pair">
+<meta name="twitter:image" content="https://electro.pizza/2017/09/panaplex-testing/pan-lit.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Panaplex Display Testing</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/11/punch-python-serial/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/09/beaker-dat/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="https://twitter.com/share?url=https://electro.pizza/2017/09/panaplex-testing/&text=Panaplex Display Testing"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://electro.pizza/2017/09/panaplex-testing/&title=Panaplex Display Testing"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://electro.pizza/2017/09/panaplex-testing/&is_video=false&description=Panaplex Display Testing"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Panaplex Display Testing&body=Check out this article: https://electro.pizza/2017/09/panaplex-testing/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-a-Panaplex"><span class="toc-number">1.</span> <span class="toc-text">What is a Panaplex?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boost-Converter"><span class="toc-number">2.</span> <span class="toc-text">Boost Converter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-de-Smith-SMPS"><span class="toc-number">2.1.</span> <span class="toc-text">The de Smith SMPS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Does-it-work"><span class="toc-number">3.</span> <span class="toc-text">Does it work?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What’s-next"><span class="toc-number">4.</span> <span class="toc-text">What’s next?</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Panaplex Display Testing
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">electro·pizza</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-09-28T03:17:41.000Z" itemprop="datePublished">2017·09·27</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/boost-converter/">boost converter</a>, <a class="tag-link" href="/tags/panaplex/">panaplex</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>In the Spring of 2017 I attended the <a href="http://hamvention.org/" target="_blank" rel="noopener">Dayton Hamvention</a>. While browsing through piles of random electronics at the flea market, I stumbled upon a few interesting vintage displays. Among these were pairs of 3-digit, 7-segment panaplex displays. While I recognized the unique metallic segments in these displays from their use in old gas pumps and pinball machines, I knew very little about them. That being said, what better way to understand a panaplex than to attempt to drive it? I purchased a pair.</p>
+<img src="/2017/09/panaplex-testing/pan-lit.png" title="Panaplex Display">
+<h2 id="What-is-a-Panaplex"><a href="#What-is-a-Panaplex" class="headerlink" title="What is a Panaplex?"></a>What is a Panaplex?</h2><p>Knowing nothing about the requirements of this display, a bit of research was in order. Panaplex is a type of gas-plasma display; they work much like the coveted <a href="https://en.wikipedia.org/wiki/Nixie_tube" target="_blank" rel="noopener">nixie tubes</a>. A small chamber is filled with low pressure neon gas. Within the gas filled chamber there is a single common anode, and multiple wire cathodes making up the segments of a digit.  When sufficient power is supplied to the cathodes, they will light up with an orange plasma glow. Panaplex saw widespread use from the 1970’s through the 1990’s, but fell in popularity when low power super-effecient LED displays became ubiquitous.</p>
+<img src="/2017/09/panaplex-testing/pan-split.png" title="Panaplex Closeup">
+<p>The particular displays I picked up (pictured above) have “Beckman SP-353” etched in the glass on the bottom left corner. As luck would have it, the internet yeilded a <a href="/2017/09/panaplex-testing/beckman-sperry.pdf">datasheet</a> for the very same model. I found it listed in the <a href="http://www.tube-tester.com/sites/nixie/dat_arch.htm" target="_blank" rel="noopener">tube-tester.com archive</a>.</p>
+<img src="/2017/09/panaplex-testing/sp-353_detail.png" title="SP-353 Detail">
+<p>The datasheet revealed what it would take to get this thing glowing. A supply voltage of 160Vdc (minimum) drawing about 330μA would do the trick.</p>
+<p>Wait, 160 Volts minimum?!</p>
+<p>My bench top power supply can only produce 30 Volts. How are we going to power these things?</p>
+<h2 id="Boost-Converter"><a href="#Boost-Converter" class="headerlink" title="Boost Converter"></a>Boost Converter</h2><p>The first solution that jumped to mind was a switched-mode power supply (SMPS), specifically a <a href="https://en.wikipedia.org/wiki/Boost_converter" target="_blank" rel="noopener">boost converter</a>. A boost converter will step up a given DC input voltage to a higher output voltage at the cost of stepping down the input current. They are small, cheap, and effecient. Its a great fit for this situation.</p>
+<p>Typically you can find a cheap “good enough” boost converter to fit your needs on ebay, Banggood, or even Amazon. However, after some thorough searching I could not find anything reasonable for voltages as high as this. Attempting to design and build my own SMPS was a possibility.  Their basic function is remarkably simple, but I knew this could quickly lead down a rabbit hole of tuning, testing, and iterating over prototypes. What I needed was an existing solution just to verify these displays were in working order.</p>
+<h3 id="The-de-Smith-SMPS"><a href="#The-de-Smith-SMPS" class="headerlink" title="The de Smith SMPS"></a>The de Smith SMPS</h3><p>After some thought, it dawned on me that nixie tubes have very similar power requirements.  Maybe a solution lurked there. Broadening the search a bit, I started looking through nixie hobbiest communities to see what their solutions were. The “de Smith Power Supply” was frequently mentioned, and after finally landing on <a href="http://www.desmith.net/NMdS/Electronics/NixiePSU.html" target="_blank" rel="noopener">Nick de Smith’s page</a> detailing his solution, I was convinced. The de Smith SMPS takes a 12V - 15V input and boosts to a 150V - 220V output.  He gives a detailed explanation of how his SMPS works, the thoughts behind his design and component choices (including a BoM, complete with digikey callouts), and even catalogues some performance testing results.  On top of all this, he was generous enough to include the Eagle cad files for the board. With this information, all that was left to do was place an order with <a href="https://oshpark.com/" target="_blank" rel="noopener">OSH Park</a> &amp; <a href="https://www.digikey.com/" target="_blank" rel="noopener">Digi-Key</a> and wait.</p>
+<img src="/2017/09/panaplex-testing/pan-desmith.png" title="Not the best solder job, but it" alt="ll work.">
+<p>Everything arrived, and I eagerly populated the components. Now let’s see if this thing works!  I connected my bench power supply to Vcc and GND on the SMPS per de Smith’s instructions.  The bench power supply was set to 14Vdc, and I happily observed around 160Vdc output from the SMPS. There is a small potentiometer on the board that allows you to make adjustments to the <a href="https://www.digikey.com/product-detail/en/maxim-integrated/MAX1771ESA-/MAX1771ESA--ND/947783" target="_blank" rel="noopener">MAX1771</a> switching controller chip, thereby controlling the output voltage. Excellent.</p>
+<img src="/2017/09/panaplex-testing/pan-boost_volt.gif" title="Voltage adjustment">
+<p>After some fiddling, I dialed the power supply in to around 165V and turned my attention back to the panaplex display.</p>
+<h2 id="Does-it-work"><a href="#Does-it-work" class="headerlink" title="Does it work?"></a>Does it work?</h2><p>Everything up to this point was done just to see if these displays were in working condition.  They seemed to be in good shape and the vendor at the hamvention asssured me they were in working order. However, I had no way to verify these claims in a muddy field in Ohio, nor when I arrived home with a measly 30V bench top supply. So, with boost converter in hand, it was finally time to see if I had a working display.</p>
+<img src="/2017/09/panaplex-testing/pan-pin_sweep.gif" title="HUZZA!">
+<p>Success!</p>
+<p>I used some small jumper wires to connect the 165V output on the de Smith SMPS to the anode of one of the digits, and all of the cathodes to a pin header on a breadboard.  This allowed me to sweep another jumper, connected to ground, across the header pins to test individual segments. I repeated this for each digit of the display on the two displays I had.  Everything worked as expected, and I found myself basking in the warm plasma glow of nearly 50 year old technology.</p>
+<h2 id="What’s-next"><a href="#What’s-next" class="headerlink" title="What’s next?"></a>What’s next?</h2><p>Now that we know everything is working, the next step is to design and build a board to make these displays more friendly to modern extra low voltage digital controllers (Arduino, Raspberry Pi, Odroid, etc).  I’ve begun narrowing down my transistor selection, and sketched some preliminary scematics in <a href="http://kicad-pcb.org/" target="_blank" rel="noopener">KiCad</a>. However, that will all have to be fodder for a future post.</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-a-Panaplex"><span class="toc-number">1.</span> <span class="toc-text">What is a Panaplex?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boost-Converter"><span class="toc-number">2.</span> <span class="toc-text">Boost Converter</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#The-de-Smith-SMPS"><span class="toc-number">2.1.</span> <span class="toc-text">The de Smith SMPS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Does-it-work"><span class="toc-number">3.</span> <span class="toc-text">Does it work?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What’s-next"><span class="toc-number">4.</span> <span class="toc-text">What’s next?</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="https://twitter.com/share?url=https://electro.pizza/2017/09/panaplex-testing/&text=Panaplex Display Testing"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://electro.pizza/2017/09/panaplex-testing/&title=Panaplex Display Testing"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://electro.pizza/2017/09/panaplex-testing/&is_video=false&description=Panaplex Display Testing"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Panaplex Display Testing&body=Check out this article: https://electro.pizza/2017/09/panaplex-testing/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-right">
+    <a href='http://webring.xxiivv.com/' target='_blank'><img src='/images/icon.white.svg'/ width="20" height="20"></a>
+  </div>
+
+  <div class="footer-center">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-left">
+    <a rel="license" title="by Ryan Oles" href="http://creativecommons.org/licenses/by/4.0/"><i class="fa fa-creative-commons"></i> 4.0</a><span style="display: none" xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Ryan Oles</span>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; img-src 'self' https://*; object-src 'none'; script-src 'self' 'unsafe-inline'; worker-src 'none'; frame-src https://www.youtube-nocookie.com https://archive.org; form-action 'none';">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="In my daily work I use a CLI tool called todo.txt coupled with an add-on called punch to track the time spent on chunks of work. Tasks are added and organized by todo.txt, and punch is used to punch i">
+<meta name="keywords" content="todo.txt,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Serial Punch">
+<meta property="og:url" content="https://electro.pizza/2017/11/punch-python-serial/index.html">
+<meta property="og:site_name" content="electro·pizza">
+<meta property="og:description" content="In my daily work I use a CLI tool called todo.txt coupled with an add-on called punch to track the time spent on chunks of work. Tasks are added and organized by todo.txt, and punch is used to punch i">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://electro.pizza/2017/11/punch-python-serial/CP2104.png">
+<meta property="og:updated_time" content="2017-11-13T03:28:25.790Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Serial Punch">
+<meta name="twitter:description" content="In my daily work I use a CLI tool called todo.txt coupled with an add-on called punch to track the time spent on chunks of work. Tasks are added and organized by todo.txt, and punch is used to punch i">
+<meta name="twitter:image" content="https://electro.pizza/2017/11/punch-python-serial/CP2104.png">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Serial Punch</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/02/geek-spinner/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2017/09/panaplex-testing/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="https://twitter.com/share?url=https://electro.pizza/2017/11/punch-python-serial/&text=Serial Punch"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://electro.pizza/2017/11/punch-python-serial/&title=Serial Punch"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://electro.pizza/2017/11/punch-python-serial/&is_video=false&description=Serial Punch"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Serial Punch&body=Check out this article: https://electro.pizza/2017/11/punch-python-serial/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CP2104"><span class="toc-number">1.</span> <span class="toc-text">CP2104</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-PoC"><span class="toc-number">2.</span> <span class="toc-text">Python PoC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Watchdog"><span class="toc-number">2.1.</span> <span class="toc-text">Watchdog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Threading"><span class="toc-number">2.2.</span> <span class="toc-text">Threading</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fine-for-now…"><span class="toc-number">3.</span> <span class="toc-text">Fine, for now…</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Serial Punch
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">electro·pizza</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-11-12T01:07:02.000Z" itemprop="datePublished">2017·11·11</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/python/">python</a>, <a class="tag-link" href="/tags/todo-txt/">todo.txt</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>In my daily work I use a CLI tool called <a href="http://todotxt.org/" target="_blank" rel="noopener">todo.txt</a> coupled with an add-on called <a href="https://github.com/adewinter/punch" target="_blank" rel="noopener">punch</a> to track the time spent on chunks of work. Tasks are added and organized by todo.txt, and punch is used to punch in and out of those tasks. Additionally, punch has a few useful reporting and archiving functions.  In combination, todo.txt and punch make for a simple and useful tool that has served me well for several years.</p>
+<p>Useful, but not perfect. A big drawback of punch is that there is no obvious indicator of the timer’s state. To see if the timer is active and the elapsed time, you must issue a cli command. Because of this, I often find myself forgetting to punch in to a new task or out at the end of the day. This obviously leads to some inaccuracies and frustrations in my time keeping. I’ve seen a few solutions to this. The simplest solution would likely be some sort of widget to display the running timer somewhere on your windows manager. However, while messing around with some old <a href="/2017/09/panaplex-testing/" title="panaplex displays">panaplex displays</a>, I began thinking of using them in a small desktop clock build.  This clock could potentially have a serial input which would allow it to display information from the punch timer. So I’ve found myself thinking about what would it take to implement something like this.</p>
+<h2 id="CP2104"><a href="#CP2104" class="headerlink" title="CP2104"></a>CP2104</h2><img src="/2017/11/punch-python-serial/CP2104.png" title="CP2104">
+<p>Last year I was interested in finding a solution for simple USB to serial communications. Through that research I stumbled upon the <a href="https://www.silabs.com/products/interface/usb-bridges" target="_blank" rel="noopener">CP21x devices</a> from Silicon Labs. Eventually I settled on the <a href="https://www.silabs.com/documents/public/data-sheets/cp2104.pdf" target="_blank" rel="noopener">CP2104 USB to UART bridge</a> and ordered a development board. These chips save a lot of work establishing onboard USB.  They appear to an OS as a typical USB device, auto negotiate baud, and simply pass along serial communications to and from the USB port.  There are some advanced configurations available to you if you wish, but by in large the CP2104 is a plug and play chip.</p>
+<p>At the time I wrote a <a href="https://github.com/rh0/cp2104_lcd_test" target="_blank" rel="noopener">test in Python</a> to echo keypresses from my computer to the device. It turns out the chip is as easy to use as promised, and is a perfect solution to interface my computer with a microcontroller in a potential desktop clock.</p>
+<video src="/2017/11/punch-python-serial/cp2104-test.mp4" type="video/mp4" autoplay loop muted></video>
+
+<h2 id="Python-PoC"><a href="#Python-PoC" class="headerlink" title="Python PoC"></a>Python PoC</h2><p>I thought it would be worthwhile to write a short proof of concept to output data from punch to serial USB. To display this data I used a SparkFun serLCD I had laying around. This wound up being a relatively simple task. I don’t think its useful walking through all of the code, but for the sake of my memory I want to point out a couple things that I learned along the way. If you’re curious you can check out the <a href="https://github.com/rh0/pySerialPunch" target="_blank" rel="noopener">complete script on my github</a>.  Please forgive my clumbsy Python. The code can be cleaned up and there is certainly a more elegant solution.</p>
+<video src="/2017/11/punch-python-serial/punch-serial-demo.mp4" type="video/mp4" autoplay loop muted></video>
+
+<h3 id="Watchdog"><a href="#Watchdog" class="headerlink" title="Watchdog"></a>Watchdog</h3><p>Punch writes tasks and timestamps to a file, called <code>punch.dat</code> to catalogue time spent on tasks.  In order for my program to be aware of active tasks and elapsed time, it needs to watch this file for changes.  The <a href="https://pythonhosted.org/watchdog/" target="_blank" rel="noopener">Watchdog</a> library handled this task nicely.</p>
+<p>Watchdog establishes an API to monitor file system CRUD events. After digging in a bit, I found it to be friendly and effective, and can be summarized in a few lines of code:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eventHandler = PunchDatEvent()</span><br><span class="line">observer = Observer()</span><br><span class="line">observer.schedule(eventHandler, <span class="string">'/path/to/watch'</span>)</span><br><span class="line">observer.start()</span><br><span class="line"></span><br><span class="line"><span class="comment"># When you're done watching.</span></span><br><span class="line">observer.stop()</span><br></pre></td></tr></table></figure></p>
+<p>Observer is a thread class to which you can schedule monitoring of a given path, and assign it an event handler to act on filesystem CRUD events observed in the given directory. Starting and stopping this thread is as easy as firing the respective methods. Most of the heavy lifting is handled by the event handler you extend from the included <code>FileSystemEventHandler</code> class (<code>PunchDatEvent</code> in the above snippet). Watchdog handles everything else. Quite nice.</p>
+<h3 id="Threading"><a href="#Threading" class="headerlink" title="Threading"></a>Threading</h3><p>A thread has been established for the Watchdog observer to handle filesystem monitoring, but what about the serial communications?  While I could likely handle this in the main program loop, I thought it could be a good opportunity to spin off another thread just for this purpose.  Painful memories linger of C/C++ multithreading from days gone by, but I have no experience with it in Python. The task here seemed simple enough to dip a toe in and give it a try.</p>
+<p>After spending some time with the core <a href="https://docs.python.org/3/library/threading.html" target="_blank" rel="noopener">threading</a> library documentation I was surprised to see just how simple this could be (granted this is a very basic application). To sum up in a couple of lines:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tickTockThread = Thread(target=eventHandler.tickTock)</span><br><span class="line">tickTockThread.start()</span><br></pre></td></tr></table></figure></p>
+<p>Instantiate a thread object and give it a target object to run.  In this case the target is a method I’ve defined within the same event handler used with the observer thread. Then simply start it.  It will run until the target method terminates, at which time the thread is destroyed.</p>
+<p>Reading through the docs, I can see how this can get more complex in a hurry. However, I was pleasantly surprised with how simple this was for my small task.</p>
+<h2 id="Fine-for-now…"><a href="#Fine-for-now…" class="headerlink" title="Fine, for now…"></a>Fine, for now…</h2><p>I now have a decent mechanism for sending my time tracker data via serial over USB to an eventual desk clock.  There are a few critical things to add to the code as I move forward with the project, such as:</p>
+<ul>
+<li>Daemonize the script for Systemd.</li>
+<li>Establish some methods of detecting the presence of the USB device.</li>
+<li>Rework the serial packets sent to fit whatever protocol is eventually used for the clock, rather than the one built into serLCD.</li>
+</ul>
+<p>However, for now, this is fine.</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CP2104"><span class="toc-number">1.</span> <span class="toc-text">CP2104</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-PoC"><span class="toc-number">2.</span> <span class="toc-text">Python PoC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Watchdog"><span class="toc-number">2.1.</span> <span class="toc-text">Watchdog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Threading"><span class="toc-number">2.2.</span> <span class="toc-text">Threading</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fine-for-now…"><span class="toc-number">3.</span> <span class="toc-text">Fine, for now…</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="https://twitter.com/share?url=https://electro.pizza/2017/11/punch-python-serial/&text=Serial Punch"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://electro.pizza/2017/11/punch-python-serial/&title=Serial Punch"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://electro.pizza/2017/11/punch-python-serial/&is_video=false&description=Serial Punch"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Serial Punch&body=Check out this article: https://electro.pizza/2017/11/punch-python-serial/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-right">
+    <a href='http://webring.xxiivv.com/' target='_blank'><img src='/images/icon.white.svg'/ width="20" height="20"></a>
+  </div>
+
+  <div class="footer-center">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-left">
+    <a rel="license" title="by Ryan Oles" href="http://creativecommons.org/licenses/by/4.0/"><i class="fa fa-creative-commons"></i> 4.0</a><span style="display: none" xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Ryan Oles</span>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+

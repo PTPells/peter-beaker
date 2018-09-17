@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline'; img-src 'self' https://*; object-src 'none'; script-src 'self' 'unsafe-inline'; worker-src 'none'; frame-src https://www.youtube-nocookie.com https://archive.org; form-action 'none';">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="The Dat ProtocolDat was developed with the idea of making sharing large files or folders securely an easy task.  Without the need to rely on a central “cloud” service (like dropbox) or through semi-cu">
+<meta name="keywords" content="Beaker,p2p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Beaker Browser and The DAT Protocol">
+<meta property="og:url" content="https://electro.pizza/2017/09/beaker-dat/index.html">
+<meta property="og:site_name" content="electro·pizza">
+<meta property="og:description" content="The Dat ProtocolDat was developed with the idea of making sharing large files or folders securely an easy task.  Without the need to rely on a central “cloud” service (like dropbox) or through semi-cu">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://electro.pizza/2017/09/beaker-dat/new_site-hash.gif">
+<meta property="og:image" content="https://electro.pizza/2017/09/beaker-dat/live-reload.gif">
+<meta property="og:image" content="https://electro.pizza/2017/09/beaker-dat/publishing.gif">
+<meta property="og:updated_time" content="2017-09-18T17:04:13.363Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Beaker Browser and The DAT Protocol">
+<meta name="twitter:description" content="The Dat ProtocolDat was developed with the idea of making sharing large files or folders securely an easy task.  Without the need to rely on a central “cloud” service (like dropbox) or through semi-cu">
+<meta name="twitter:image" content="https://electro.pizza/2017/09/beaker-dat/new_site-hash.gif">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Beaker Browser and The DAT Protocol</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2017/09/panaplex-testing/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="https://twitter.com/share?url=https://electro.pizza/2017/09/beaker-dat/&text=Beaker Browser and The DAT Protocol"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://electro.pizza/2017/09/beaker-dat/&title=Beaker Browser and The DAT Protocol"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://electro.pizza/2017/09/beaker-dat/&is_video=false&description=Beaker Browser and The DAT Protocol"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Beaker Browser and The DAT Protocol&body=Check out this article: https://electro.pizza/2017/09/beaker-dat/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Dat-Protocol"><span class="toc-number">1.</span> <span class="toc-text">The Dat Protocol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beaker-Browser"><span class="toc-number">2.</span> <span class="toc-text">Beaker Browser</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Site-Generation"><span class="toc-number">2.1.</span> <span class="toc-text">Site Generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Live-Reload"><span class="toc-number">2.2.</span> <span class="toc-text">Live Reload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Publishing"><span class="toc-number">2.3.</span> <span class="toc-text">Publishing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dathttpd"><span class="toc-number">3.</span> <span class="toc-text">dathttpd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hangups"><span class="toc-number">3.1.</span> <span class="toc-text">Hangups</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-Installation-on-the-Server"><span class="toc-number">3.1.1.</span> <span class="toc-text">Node Installation on the Server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Firewalls"><span class="toc-number">3.1.2.</span> <span class="toc-text">Firewalls</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Beaker Browser and The DAT Protocol
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">electro·pizza</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2017-09-17T23:00:00.000Z" itemprop="datePublished">2017·09·17</time>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Beaker/">Beaker</a>, <a class="tag-link" href="/tags/p2p/">p2p</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="The-Dat-Protocol"><a href="#The-Dat-Protocol" class="headerlink" title="The Dat Protocol"></a>The Dat Protocol</h2><p><a href="https://datproject.org/" target="_blank" rel="noopener">Dat</a> was developed with the idea of making sharing large files or folders securely an easy task.  Without the need to rely on a central “cloud” service (like dropbox) or through semi-cumbersome means like rsync or scp, Dat can make it easy to store, share, and track large volumes of data.  This is accomplished through a peer-to-peer (p2p) network (much like BitTorrent). This brings along several of the benefits of a p2p architecture.  There is no central host where availability (or security/privacy leanings) would be a concern, you can share across a local network (LAN), and bandwidth scales with the growth of demand as downloads will be distributed across the peers.</p>
+<p>Scientists and researchers were the initial target audience for Dat, allowing them to easily archive and share data. I first caught wind of Dat in Februrary of 2017 when it came to light that the data stored at <a href="open.whitehouse.gov">open.whitehouse.gov</a> was being inexplicably deleted.  Data from open.whitehouse.gov was scraped and stored in a Dat archive so that the information would not be lost. You can see this and a few other endeavors cataloged on <a href="https://datproject.org/explore" target="_blank" rel="noopener">the Dat website</a>.</p>
+<p>You can read more about Dat, and forgo further clumsy explanation from me, in their <a href="https://docs.datproject.org/" target="_blank" rel="noopener">documentation</a>.</p>
+<h2 id="Beaker-Browser"><a href="#Beaker-Browser" class="headerlink" title="Beaker Browser"></a>Beaker Browser</h2><p>So Dat is a protocol to serve files. Viewing a website is nothing more than files served to a browser that then renders them. So what if we pipe files recieved via the Dat protocol to a browser for rendering? Well you got a peer-to-peer web goin’!</p>
+<p>Clearly it’s a bit more complex than that, but that is the gist of what <a href="https://Beakerbrowser.com/" target="_blank" rel="noopener">Beaker Browser</a> does. Beaker is a project developed by <a href="https://twitter.com/taravancil" target="_blank" rel="noopener">Tara Vancil</a> and <a href="https://twitter.com/pfrazee" target="_blank" rel="noopener">Paul Frazee</a>, and is a self described peer-to-peer web browser.  Its still under very active development, but after some semi-regular use I’ve found it both useable and exciting.</p>
+<p>Recently Tara and Paul did a talk for the local group <a href="https://edgeatx.github.io/" target="_blank" rel="noopener">Bleeding Edge Web</a> here in Austin. The talk is enlightening; it gives a window into their vision of the project. If you have some free time, its worth a watch.</p>
+<div class="video-container"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/9tk9m_QIi2Q?rel=0&amp;start=2810" frameborder="0" allowfullscreen></iframe></div>
+
+<p>Paul also has a brief video introduction to Beaker:</p>
+<div class="video-container"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/U2B9mwRFE8U?rel=0" frameborder="0" allowfullscreen></iframe></div>
+
+<p>The peer-to-peer web is, arguably, still in its infancy.  However, seeing and using a working model is exciting, with potentially far-reaching ramifications. Since many of the current “gatekeepers” to the web are taken out of the equation in a peer-to-peer model, I think there is a potential to reclaim a lot of the magic and excitement present in the early internet. In this spirit, I’ve made this site available to Beaker via Dat at <a href="dat://electro.pizza">dat://electro.pizza</a> or<br><a href="dat://485d1f5c6cc1970ee29318f3be66c6c9bd0fb5894e757fdc926785ae6a725346" target="_blank" rel="noopener">dat://485d1f5c6cc1970ee29318f3be66c6c9bd0fb5894e757fdc926785ae6a725346</a> if you like hashes.</p>
+<p>While setting this simple site up a few things stood out to me and I’d like to note them here. For the sake of time (and the length of this post), I’m not going to touch on all of the features with both Dat and Beaker. Rather, I will try to limit the focus to what I encountered while setting up and publishing this simple site.  Many of these features are quite interesting and exciting in their own right, and if you are interested I encourage you to check them out on the relavent project pages.  Most notable of these to me are:</p>
+<ul>
+<li>Built in versioning on the history of changes in a DAT site.</li>
+<li>Forking of Dat sites (along with new potential workflows when working with a team).</li>
+<li>New Web API’s in Beaker to build peer-to-peer applications.</li>
+</ul>
+<p>But for now, some Beaker basics:</p>
+<h3 id="Site-Generation"><a href="#Site-Generation" class="headerlink" title="Site Generation"></a>Site Generation</h3><p>Initial creation of a site/hash is extremely simple; the dialogues in the browser walk you through things. Beaker handles setting up the <code>.dat</code> folder and keys behind the scenes so you don’t have to futz with it.  If you don’t want to keep the site code in the default location (<code>/home/&lt;user&gt;/Sites</code> in Linux), you need to take the extra step of changing the directory to point at the public files of your site.</p>
+<p>Here is an example of the process:<br><img src="/2017/09/beaker-dat/new_site-hash.gif" title="Creating a New Site/Hash"></p>
+<h3 id="Live-Reload"><a href="#Live-Reload" class="headerlink" title="Live Reload"></a>Live Reload</h3><p>Live reloading should be nothing new to most web developers, however its nice to have this ready to go “out of the box”.  It behaves like you would expect, watching site files for changes and refreshing.  This makes pairing with something like a static site generator in a watch mode quite nice.</p>
+<img src="/2017/09/beaker-dat/live-reload.gif" title="Live Reloading">
+<h3 id="Publishing"><a href="#Publishing" class="headerlink" title="Publishing"></a>Publishing</h3><p>This was glossed over in the site generation example above, but the publishing mechanism may be the most exciting (in the context of workflow) with Beaker.  As you would expect, when you make changes to site files locally they are reflected locally in Beaker. Traditionally, when you are ready to publish these changes to the web, you would perform a push of the code through various mechanisms, ie. pushing to a CI system or manually scp/rsync/sftp files to a centralized server somewhere.  However, with Beaker all you need do is click the big green publish button, and the file changes are then propigated through to all peers. No server concerns at all. Refreshing!</p>
+<img src="/2017/09/beaker-dat/publishing.gif" title="Publishing">
+<p>In this example Beaker is on the left and Firefox on the right. Changes published from Beaker are reflected via a remote peer serving over HTTPS to Firefox.</p>
+<h2 id="dathttpd"><a href="#dathttpd" class="headerlink" title="dathttpd"></a>dathttpd</h2><p>Now wait a minute. Firefox? HTTPS? A *gasp* SERVER!?  Weren’t we talking about a peer-to-peer web? Well we are, but we don’t have a widely adopted peer-to-peer web yet!  So, we need a stop-gap to solve a couple of issues:</p>
+<p>First, electro.pizza isn’t wildly popular. Often my local Beaker Browser installation will be the only peer, thus the only source for anyone to view the site. Therefore, for this site to have constant “uptime”, I would need my Beaker installation to always be running with a network connection.  Not ideal.</p>
+<p>Second, the vast majority of people surfing the web are using more traditional browsers (Firefox, Chrome, Edge, etc.), and I would like those folks to be able to view my site through the (currently) standard HTTPS web protocol.</p>
+<p><a href="https://github.com/Beakerbrowser/dathttpd" target="_blank" rel="noopener">Dathttpd</a> solves this problem by acting as both a peer for a Dat site, as well as a small web server.  This allows you to keep a Dat site up without having to leave Beaker running.  Further, you get the added bonus of being able to point DNS at that server which allows for shortnames for your site.  Configuration is simple and detailed on the projects github page.</p>
+<h3 id="Hangups"><a href="#Hangups" class="headerlink" title="Hangups"></a>Hangups</h3><p>I was caught up in a couple of small snags while setting up dathttpd. Nothing crazy, but its probably worth a note.</p>
+<h4 id="Node-Installation-on-the-Server"><a href="#Node-Installation-on-the-Server" class="headerlink" title="Node Installation on the Server"></a>Node Installation on the Server</h4><p>Once the dathttpd config is set up and things seem to be working as expected, it is suggested to use <a href="https://github.com/mafintosh/add-to-systemd" target="_blank" rel="noopener">add-to-systemd</a> to daemonize the process.  This works quite well, however I’ve found add-to-systemd works best if nodejs is installed on a system level (rather than something like NVM). Use your distro’s package manager to install nodejs greater than version 6.0.  On distros like Ubuntu, you’ll likely have to add a PPA for the newer nodejs version.</p>
+<h4 id="Firewalls"><a href="#Firewalls" class="headerlink" title="Firewalls"></a>Firewalls</h4><p>After having dathttpd running for a few days then returning to Beaker to make site updates, I found that dathttpd and Beaker had trouble reconnecting with each other to propigate updates. I watched traffic for a bit, and it seemed to be a firewall issue with the server. Turns out the machine that is running dathttpd needs to have port 3282/tcp open.  After making this adjustment everything worked as expected. I have a bit of a nagging concern that any machine running Beaker also needs port 3282 opened.  So far this does not seem to be the case, but I’m not completely convinced.</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Dat-Protocol"><span class="toc-number">1.</span> <span class="toc-text">The Dat Protocol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Beaker-Browser"><span class="toc-number">2.</span> <span class="toc-text">Beaker Browser</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Site-Generation"><span class="toc-number">2.1.</span> <span class="toc-text">Site Generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Live-Reload"><span class="toc-number">2.2.</span> <span class="toc-text">Live Reload</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Publishing"><span class="toc-number">2.3.</span> <span class="toc-text">Publishing</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dathttpd"><span class="toc-number">3.</span> <span class="toc-text">dathttpd</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hangups"><span class="toc-number">3.1.</span> <span class="toc-text">Hangups</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Node-Installation-on-the-Server"><span class="toc-number">3.1.1.</span> <span class="toc-text">Node Installation on the Server</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Firewalls"><span class="toc-number">3.1.2.</span> <span class="toc-text">Firewalls</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="https://twitter.com/share?url=https://electro.pizza/2017/09/beaker-dat/&text=Beaker Browser and The DAT Protocol"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://electro.pizza/2017/09/beaker-dat/&title=Beaker Browser and The DAT Protocol"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://electro.pizza/2017/09/beaker-dat/&is_video=false&description=Beaker Browser and The DAT Protocol"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Beaker Browser and The DAT Protocol&body=Check out this article: https://electro.pizza/2017/09/beaker-dat/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-right">
+    <a href='http://webring.xxiivv.com/' target='_blank'><img src='/images/icon.white.svg'/ width="20" height="20"></a>
+  </div>
+
+  <div class="footer-center">
+    <nav>
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/archives/">Writing</a></li>
+        
+          <li><a href="/about/">About</a></li>
+        
+          <li><a href="/feed.xml">RSS</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+
+  <div class="footer-left">
+    <a rel="license" title="by Ryan Oles" href="http://creativecommons.org/licenses/by/4.0/"><i class="fa fa-creative-commons"></i> 4.0</a><span style="display: none" xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Ryan Oles</span>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+<!-- Disqus Comments -->
+
+

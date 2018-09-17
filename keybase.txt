@@ -1,0 +1,69 @@
+
+==================================================================
+https://keybase.io/rh0
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://electro.pizza
+  * I am rh0 (https://keybase.io/rh0) on keybase.
+  * I have a public key with fingerprint 1B36 FB80 A2A3 FD6E 5C7F  9354 4EB3 335F CC1B 9695
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01013454334a956e4851ae9b188f6aaa7f8ab7a43b75804990b639c747a6e0b55a180a",
+      "fingerprint": "1b36fb80a2a3fd6e5c7f93544eb3335fcc1b9695",
+      "host": "keybase.io",
+      "key_id": "4eb3335fcc1b9695",
+      "kid": "01013454334a956e4851ae9b188f6aaa7f8ab7a43b75804990b639c747a6e0b55a180a",
+      "uid": "265c98d9f330442baf2801d3eab6ac19",
+      "username": "rh0"
+    },
+    "service": {
+      "hostname": "electro.pizza",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1518188271,
+  "expire_in": 157680000,
+  "prev": "b633b13ee42d3ce5946c07502debcd51ab645db64eddad70b23d7acba34ec5cc",
+  "seqno": 5,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMIsAnicrVJbSBVBGD5qlhpFEVpJZm3QTdPdnZ29HMzQQop6iIIezDrNzM6es3o8
+e9qzWnk7maAV0s2HLkg3SnzoIkUZUZomFipYPVSChUV0IyqCXtIus2JvPTYPM8z/
+f9/3/9/P3zMtzpMUc3k62nv16YkDMf1dTWWewuqbXyo5bOl7OG8lV0LHHxrUacTx
+lZg65+V4gReABCUAJKRBmUoqFBDVsKCqhowQUgwVYQVJACtQ5SVN47EMNKJICpIp
+jyFEgsojLpMzzJCf2mHbDDlMVsBANjDLiAgYukwhUQwNQEmiGAAADUIErMkaZMSA
+FXEZrDmMIjTLtFiMfXzj7f0D/5/7LhuXE2VINFXXDAB4SRIxMkSVF3RAEZYRETQX
+GKF2CJVShrYDPFedybFAuUmoO1PXxESSBilxbCsrbFZUuAXCtuVYxAqyVMBxwhGv
+S3X2hF3sLop9Eyo+bIZ0NkPGKKd2xLRCnFdgSOKYrqwABZV5ExUhk6O7w6ZNfaaL
+gIqs8uy4dWg5k2Q2ARYApZKoA0KhJsmEVyAv6hQTnQ0JyxLU2UV1HekKj0WgK4hg
+BCRKICGc62tnyOK8kLWJ/EwyYvpDyCmzKVfdfa9okicmyTM5PtbdLU9S4oy/G/f+
+XILn9PlzN86Ir+enHR5Mu187mv2hNSenqHNNgVfLL2j55BNO5qVuykjpj6Yve3y+
+e6gwuGXJxa6Nv7Y/GbszOy6vcfr6/c8qP5d+fJT7svlr1PrtP7v2LbzeczaP1Awc
+qVzXty96oaZ3c0ZgVn5hXFJtU/DQorE3w/M7ork/LkTrimaWlN4amhL78Mr3+rZj
+O83kF4Xf3nctTWxsOdVeHIge3Rbbkd2RMA/tf1Xx9kCHZ/W1gUvxI2+KB1dkNZ+Z
+OTyWy+84OJaa0FbVEG0djVv8bkN1elXKyjbf7W1z1Nqp7XUqzUj+XDC6ynPXfO7f
+0vcje8HKrfUNvasXdibHH+9Pnbv8Z8aDkdAfvO0+KA==
+=Q0R3
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/rh0
+
+==================================================================
